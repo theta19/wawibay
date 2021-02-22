@@ -5,20 +5,24 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import view.AnmeldeView;
 import view.HauptView;
 
 public class Controller implements ActionListener {
 
 	HauptView hauptview;
+	AnmeldeView anmeldeview;
 
-	public Controller(HauptView hauptview) {
+	
+
+	public Controller(HauptView hauptview, AnmeldeView anmeldeview) {
 		this.hauptview = hauptview;
+		this.anmeldeview = anmeldeview;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		
 		switch (e.getActionCommand()) {
 		case "artikel":
 			hauptview.add(hauptview.getArtikelFrame());
@@ -30,16 +34,20 @@ public class Controller implements ActionListener {
 		case "kunden":
 			hauptview.add(hauptview.getKundenFrame());
 			schliesseInternalFrames();
-			hauptview.getTest().setText("Hallo Welt");
 			hauptview.getKundenFrame().setVisible(true);
 			break;
 
 		case "lager":
 			hauptview.add(hauptview.getLagerFrame());
 			schliesseInternalFrames();
-			
+
 			hauptview.getLagerFrame().setVisible(true);
 
+			break;
+
+		case "beenden":
+			hauptview.dispose();
+			anmeldeview.dispose();
 			break;
 
 		default:
@@ -52,7 +60,7 @@ public class Controller implements ActionListener {
 		hauptview.getArtikelFrame().dispose();
 		hauptview.getKundenFrame().dispose();
 		hauptview.getLagerFrame().dispose();
-		
+
 	}
 
 }

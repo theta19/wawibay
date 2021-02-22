@@ -19,7 +19,6 @@ import controller.Controller;
 public class HauptView extends JFrame {
 
 	JInternalFrame artikelFrame, kundenFrame, lagerFrame;
-	JTextField test;
 
 	Controller controller;
 
@@ -45,6 +44,8 @@ public class HauptView extends JFrame {
 		kundenButton.setActionCommand("kunden");
 		JButton beendenButton = new JButton("Beenden");
 		beendenButton.setPreferredSize(new Dimension(100, 50));
+		beendenButton.addActionListener(controller);
+		beendenButton.setActionCommand("beenden");
 
 		// Panel für Buttons
 		FlowLayout oberesflowLayout = new FlowLayout(FlowLayout.LEFT);
@@ -80,8 +81,6 @@ public class HauptView extends JFrame {
 
 		// Fenster "LAGER":
 		lagerFrame = new JInternalFrame();
-		test = new JTextField();
-		lagerFrame.add(test);
 		lagerFrame.setLocation(100, 100);
 		lagerFrame.setTitle("Lagerübersicht");
 		lagerFrame.setClosable(true);
@@ -119,11 +118,5 @@ public class HauptView extends JFrame {
 	public void setLagerFrame(JInternalFrame lagerFrame) {
 		this.lagerFrame = lagerFrame;
 	}
-
-	public JTextField getTest() {
-		return test;
-	}
-	
-	
 
 }

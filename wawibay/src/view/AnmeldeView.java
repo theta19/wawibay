@@ -42,6 +42,8 @@ public void initialise(Controller controller) {
 	//Erstellung Buttons
 	JButton anmeldeButton = new JButton("Anmelden");
 	JButton abbrechenButton = new JButton("Abbrechen");
+	abbrechenButton.addActionListener(controller);
+	abbrechenButton.setActionCommand("beenden");
 	
 	//Erstellung des Buttonpanels (Layoutgründe...)
 	JPanel buttonPanel = new JPanel(new BorderLayout());
