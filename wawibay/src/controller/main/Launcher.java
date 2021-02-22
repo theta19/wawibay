@@ -2,21 +2,20 @@ package controller.main;
 
 import controller.Controller;
 import view.AnmeldeView;
-import view.StartView;
+import view.HauptView;
 
 public class Launcher {
 
 	public static void main(String[] args) {
-		Controller controller = new Controller();
-		
 		AnmeldeView anmeldeView = new AnmeldeView();
-		StartView startView = new StartView();
+		HauptView hauptView = new HauptView();
+		Controller controller = new Controller(hauptView);
 		
-		//@Basti: Die Methode aufrufen für Hauptfenster
-		startView.initialise(controller);
+		//Hauptfenster
+		hauptView.initialise(controller);
 		
-		//Auskommentiert zu Testzwecken:
-		anmeldeView.initialise(controller);
+		//Anmeldefenster - kommt nach Hauptfenster, damit es darüber liegt
+		//anmeldeView.initialise(controller);
 
 	}
 
