@@ -1,0 +1,54 @@
+Moin zusammen,
+ich erkläre euch mal Fix wie ihr MySQL zum laufen bringt und mein Script ausführen könnt. 
+Für Windows 10: https://dev.mysql.com/downloads/windows/installer/8.0.html und zu Schritt 6)
+sonst:
+	1.) auf https://www.mysql.com/ gehen
+	2.) Reiter "Downloads"
+	3.) Auswahl "MySQL Community (GPL) Downloads"
+	4.) Auswahl "MySQL Community Server"
+	5.) Auswahl "Go to Download Page"
+	6.) "Windows (x86, 32-bit), MSI Installer" mit 422 MB downloaden
+	7.) "No thanks, just start my download"
+
+Installation:
+	1.) Installationsprogramm öffnen
+	2.) auf linker Seite seht ihr abzuarbeitende Schritte
+	3.) Lizenzvereinbarung akzeptieren
+	4.) Setup Typ: Developer Default
+	5.) Check Requirements: vermutlich meckert er, dass Python fehlt, brauchen wir aber nicht -> next
+	6.) Installation: Execute und durchlaufen lassen
+	7.) Product Configuration
+	8.) MySQL Server:
+		- Standalone MySQL-Server -> next
+		- Confiq Type: Develop Machine -> next
+		- Root Passwort erstellen und neuen Account (Entwickler) erstellen, hab meinen Entwickler einfach wawibay genannt (DB Admin) -> next
+		- Windows Service so lassen -> next
+		- Plugins und Extensions so lassen -> next
+		- Apply Configuration execute
+	9.) MySQL Router -> finish
+	10.) Samples und Examples -> Server auswählen, mit root anmelden und next -> execute
+	11.) Finish
+	Wenn es Probleme gab, hier nochmal nen Youtube Video: https://www.youtube.com/watch?v=j-TytDzN1x0
+	
+MySQL Anfang:
+	1.) MySQL Workbench öffnen
+	2.) "MySQL Connections" auf + und neue Verbindung anlegen, bei Username euren vorhin erstellten Entwickler-Benutzer und Passwort
+	3.) Verbindung öffnen -> Passwort
+	4.) Mein Script rein kopieren / oder nen Doppelklick auf Script.sql sollte auch gehen, wenn nicht Script.txt kopieren
+	5.) oben auf den Blitz Script ausführen
+	6.) Links bei "Schemas" aktualisieren
+	7.) Datenbank wawibay müsste zu sehen sein mit den Tabellen "artikel", "kategorie", "kunden", "lager"	https://i.imgur.com/Qx6Afqx.png
+	8.) mit einem Klick neben eine Tabelle auf das Tabellenzeichen, öffnet sich Tabelle 			https://i.imgur.com/v4wxjrn.png
+		(oder ihr führt die entsprechend auskommentierte Zeile im Script aus)
+
+	
+	Artikel: https://i.imgur.com/nrys6f9.png
+	Kategorie: https://i.imgur.com/eVTbmCg.png
+	Kunden: https://i.imgur.com/FbSvyz6.png
+	Lager: https://i.imgur.com/0evtipi.png
+	
+	
+		
+		
+	
+	
