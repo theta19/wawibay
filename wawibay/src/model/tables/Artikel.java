@@ -12,10 +12,14 @@ public class Artikel {
 	private float stueckpreis;
 	private String artikelbeschreibung;
 	private String material;
-	private Image bild;
 	private String farbe;
-	private float steuersatz;
+	private int steuersatz;
 	private String groesse;
+	private int kategorie_ID;
+
+	private static String[][] struktur = { { "Artikel_ID", "Integer" }, { "Bezeichnung", "String" },
+			{ "Stueckpreis", "Float" }, { "Artikelbeschreibung", "String" }, { "Material", "String" },
+			{ "Farbe", "String" }, { "Steuersatz", "Integer" }, { "Groesse", "String" } };
 
 	/*
 	 * Konstruktoren
@@ -23,21 +27,26 @@ public class Artikel {
 
 	// Standard
 	public Artikel(int artikel_ID, String bezeichnung, float stueckpreis, String artikelbeschreibung, String material,
-			Image bild, String farbe, float steuersatz, String groesse) {
+			String farbe, int steuersatz, String groesse, int kategorie_ID) {
 		this.artikel_ID = artikel_ID;
 		this.bezeichnung = bezeichnung;
 		this.stueckpreis = stueckpreis;
 		this.artikelbeschreibung = artikelbeschreibung;
 		this.material = material;
-		this.bild = bild;
 		this.farbe = farbe;
 		this.steuersatz = steuersatz;
 		this.groesse = groesse;
+		this.kategorie_ID = kategorie_ID;
 	}
 
 	/*
 	 * Methoden
 	 */
+
+	// Alle Daten
+	public static String alles() {
+		return "Select * from artikel";
+	}
 
 	/*
 	 * Getter und Setter
@@ -83,14 +92,6 @@ public class Artikel {
 		this.material = material;
 	}
 
-	public Image getBild() {
-		return bild;
-	}
-
-	public void setBild(Image bild) {
-		this.bild = bild;
-	}
-
 	public String getFarbe() {
 		return farbe;
 	}
@@ -99,11 +100,11 @@ public class Artikel {
 		this.farbe = farbe;
 	}
 
-	public float getSteuersatz() {
+	public int getSteuersatz() {
 		return steuersatz;
 	}
 
-	public void setSteuersatz(float steuersatz) {
+	public void setSteuersatz(int steuersatz) {
 		this.steuersatz = steuersatz;
 	}
 
@@ -113,6 +114,27 @@ public class Artikel {
 
 	public void setGroesse(String groesse) {
 		this.groesse = groesse;
+	}
+
+	public int getKategorie_ID() {
+		return kategorie_ID;
+	}
+
+	public void setKategorie_ID(int kategorie_ID) {
+		this.kategorie_ID = kategorie_ID;
+	}
+
+	public static String[][] getStruktur() {
+		return struktur;
+	}
+	/*
+	 * Overrides
+	 */
+
+	@Override
+	public String toString() {
+		return artikel_ID + "," + bezeichnung + "," + stueckpreis + "," + artikelbeschreibung + "," + material + "," + farbe
+				+ "," + steuersatz + "," + groesse+ "," + kategorie_ID;
 	}
 
 }

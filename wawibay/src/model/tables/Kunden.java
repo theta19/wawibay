@@ -7,26 +7,32 @@ public class Kunden {
 	 */
 
 	private int kunden_ID;
-	private String anrede;
-	private String nachname;
-	private String vorname;
 	private String ebay_nutzername;
+	private String anrede;
+	private String vorname;
+	private String nachname;
 	private String strasse_nr;
 	private String plz;
 	private String ort;
-	private String land;
-	private String telefonnummer;
 	private String adresszusatz;
+	private String land;
 	private String email;
+	private String telefonnummer;
+
+	private static String[][] struktur = { { "Kunden_ID", "Integer" }, { "EBay_Benutzername", "String" },
+			{ "Anrede", "String" }, { "Vorname", "String" }, { "Nachname", "String" },
+			{ "Strasse_Hausnummer", "String" }, { "Postleitzahl", "String" }, { "Wohnort", "String" },
+			{ "Adresszusatz", "String" }, { "Land", "String" }, { "Email_Adresse", "String" },
+			{ "Telefonnummer", "String" } };
 
 	/*
 	 * Konstruktoren
 	 */
 
 	// Standard
-	public Kunden(int kunden_ID, String anrede, String nachname, String vorname, String ebay_nutzername,
-			String strasse_nr, String plz, String ort, String land, String telefonnummer, String adresszusatz,
-			String email) {
+	public Kunden(int kunden_ID, String ebay_nutzername, String anrede, String vorname, String nachname,
+			String strasse_nr, String plz, String ort, String land, String adresszusatz, String email,
+			String telefonnummer) {
 		this.kunden_ID = kunden_ID;
 		this.anrede = anrede;
 		this.nachname = nachname;
@@ -44,6 +50,11 @@ public class Kunden {
 	/*
 	 * Methoden
 	 */
+
+	// Alle Daten
+	public static String alles() {
+		return "Select * from kunden";
+	}
 
 	/*
 	 * Getter und Setter
@@ -144,4 +155,17 @@ public class Kunden {
 		this.email = email;
 	}
 
+	public static String[][] getStruktur() {
+		return struktur;
+	}
+
+	/*
+	 * Overrides
+	 */
+
+	@Override
+	public String toString() {
+		return kunden_ID + "," + ebay_nutzername + "," + anrede + "," + vorname + "," + nachname + "," + strasse_nr
+				+ "," + plz + "," + ort + "," + adresszusatz + "," + land + "," + email + "," + telefonnummer;
+	}
 }

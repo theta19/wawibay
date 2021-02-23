@@ -9,6 +9,8 @@ public class Lager {
 	private int artikel_ID;
 	private int anzahl;
 
+	private static String[][] struktur = { { "Artikel_ID_Fremd", "Integer" }, { "Anzahl", "Integer" } };
+	
 	/*
 	 * Konstruktoren
 	 */
@@ -22,6 +24,11 @@ public class Lager {
 	/*
 	 * Methoden
 	 */
+	
+	// Alle Daten
+		public static String alles() {
+			return "Select * from lager";
+		}
 
 	/*
 	 * Getter und Setter
@@ -40,6 +47,15 @@ public class Lager {
 
 	public void setAnzahl(int anzahl) {
 		this.anzahl = anzahl;
+	}
+	
+	public static String[][] getStruktur() {
+		return struktur;
+	}
+
+	@Override
+	public String toString() {
+		return artikel_ID + "," + anzahl;
 	}
 
 }

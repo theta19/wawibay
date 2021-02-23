@@ -8,6 +8,8 @@ public class Kategorie {
 	private int kategorie_ID;
 	private String name;
 
+	private static String[][] struktur = { { "Kategorie_ID", "Integer" }, { "Kategoriename", "String" } };
+
 	/*
 	 * Konstruktoren
 	 */
@@ -18,11 +20,14 @@ public class Kategorie {
 		this.name = name;
 	}
 
-	
-
 	/*
 	 * Methoden
 	 */
+
+	// Alle Daten
+	public static String alles() {
+		return "Select * from kategorie";
+	}
 
 	/*
 	 * Getter und Setter
@@ -43,4 +48,14 @@ public class Kategorie {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public static String[][] getStruktur() {
+		return struktur;
+	}
+
+	@Override
+	public String toString() {
+		return kategorie_ID + "," + name;
+	}
+
 }
