@@ -6,18 +6,19 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import view.AnmeldeView;
+import view.ArtikelView;
 import view.HauptView;
 
 public class Controller implements ActionListener {
 
 	HauptView hauptview;
 	AnmeldeView anmeldeview;
+	ArtikelView artikelview;
 
-	
-
-	public Controller(HauptView hauptview, AnmeldeView anmeldeview) {
+	public Controller(HauptView hauptview, AnmeldeView anmeldeview, ArtikelView artikelview) {
 		this.hauptview = hauptview;
 		this.anmeldeview = anmeldeview;
+		this.artikelview = artikelview;
 	}
 
 	@Override
@@ -36,18 +37,17 @@ public class Controller implements ActionListener {
 			schliesseInternalFrames();
 			hauptview.getKundenFrame().setVisible(true);
 			break;
-
-		case "lager":
-			hauptview.add(hauptview.getLagerFrame());
-			schliesseInternalFrames();
-
-			hauptview.getLagerFrame().setVisible(true);
-
+		
+		
+		case "neuerArtikel":
+			
+			artikelview.initialise(this);
 			break;
-
+			
 		case "beenden":
 			hauptview.dispose();
 			anmeldeview.dispose();
+			artikelview.dispose();
 			break;
 
 		default:
@@ -59,7 +59,6 @@ public class Controller implements ActionListener {
 	private void schliesseInternalFrames() {
 		hauptview.getArtikelFrame().dispose();
 		hauptview.getKundenFrame().dispose();
-		hauptview.getLagerFrame().dispose();
 
 	}
 
