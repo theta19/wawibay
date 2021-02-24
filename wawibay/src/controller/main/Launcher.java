@@ -15,6 +15,9 @@ public class Launcher {
 
 		// Hauptfenster
 		hauptView.initialise(controller);
+		
+		//Testzwecke
+		//artikelView.initialise(controller);
 
 		// Anmeldefenster - kommt nach Hauptfenster, damit es darüber liegt
 		//anmeldeView.initialise(controller);

@@ -27,15 +27,73 @@ public class HauptView extends JFrame {
 	JInternalFrame artikelFrame, kundenFrame, lagerFrame;
 
 	//Testdaten
-	Object[][] data = { { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" },
-			{ "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" },
-			{ "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" },
-			{ "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" },
-			{ "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" },
-			{ "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" },
-			{ "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" }, { "a", "b" },
-			{ "a", "b" }, { "a", "b" } };
-	Object[] head = {"A","B"}; 
+	Object[][] artikeltestdata = 
+		{	{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
+			{ "12345", "Testartikel" }, { "12345", "Testartikel" }};
+	
+	Object[] artikeltesthead = {"Artikelnummer","Bezeichnung"}; 
+	
+	Object[][] kundentestdata = 
+			{ { "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
+			{ "67890", "Testkunde" }, { "67890", "Testkunde" }};
+	
+	Object[] kundentesthead = {"Kundennummer","Name"}; 
 
 	Controller controller;
 
@@ -74,10 +132,10 @@ public class HauptView extends JFrame {
 		beendenButton.setActionCommand("beenden");
 
 		// Panel für Buttons
-		FlowLayout oberesflowLayout = new FlowLayout(FlowLayout.LEFT);
+		FlowLayout linkesflowLayout = new FlowLayout(FlowLayout.LEFT);
 		JPanel navigationsButtonPanel = new JPanel();
 		navigationsButtonPanel.setBorder(BorderFactory.createTitledBorder("Navigation"));
-		navigationsButtonPanel.setLayout(oberesflowLayout);
+		navigationsButtonPanel.setLayout(linkesflowLayout);
 
 		// Buttons hinzufügen
 		navigationsButtonPanel.add(artikelButton);
@@ -103,12 +161,14 @@ public class HauptView extends JFrame {
 		JButton kategorieNeuButton = new JButton("Neue Kategorie...");
 		JButton bearbeitenButton = new JButton("Artikel bearbeiten...");
 		JButton loeschenButton = new JButton("Artikel löschen");
+		JButton artikelListeAktualisierenButton = new JButton("Liste aktualisieren");
 
 		// Größen der Buttons festlegen
 		artikelNeuButton.setPreferredSize(artikelNavigationDimension);
 		kategorieNeuButton.setPreferredSize(artikelNavigationDimension);
 		bearbeitenButton.setPreferredSize(artikelNavigationDimension);
 		loeschenButton.setPreferredSize(artikelNavigationDimension);
+		artikelListeAktualisierenButton.setPreferredSize(artikelNavigationDimension);
 
 		// Buttons zum ArtikelNavigationPanel hinzufügen
 		JPanel artikelNavigationPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
@@ -117,6 +177,7 @@ public class HauptView extends JFrame {
 		artikelNavigationPanel.add(bearbeitenButton);
 		artikelNavigationPanel.add(loeschenButton);
 		artikelNavigationPanel.add(kategorieNeuButton);
+		artikelNavigationPanel.add(artikelListeAktualisierenButton);
 
 		// Actionlisteners und ActionCommands für alle Buttons
 		artikelNeuButton.addActionListener(controller);
@@ -130,9 +191,12 @@ public class HauptView extends JFrame {
 
 		loeschenButton.addActionListener(controller);
 		loeschenButton.setActionCommand("loescheArtikel");
+		
+		artikelListeAktualisierenButton.addActionListener(controller);
+		artikelListeAktualisierenButton.setActionCommand("aktualisiereArtikelListe");
 
 		// Tabelle für die Artikel inkl. Sortierer und Scrollpane
-		JTable artikelTable = new JTable(data, head);
+		JTable artikelTable = new JTable(artikeltestdata, artikeltesthead);
 		artikelTable.setDragEnabled(false);
 		artikelTable.setAutoCreateRowSorter(true);
 		JScrollPane artikelScrollPane = new JScrollPane(artikelTable);
@@ -140,22 +204,36 @@ public class HauptView extends JFrame {
 		// Hinzufügen zum großen Artikelframe
 		artikelFrame.add(artikelNavigationPanel, BorderLayout.SOUTH);
 		artikelFrame.add(artikelScrollPane);
-
-		// Fenster "KUNDEN":
+		
+		/* Fenster Kunden */
+		
+		// Tabelle für die Kunden inkl. Sortierer und Scrollpane
+		JTable kundenTable = new JTable(kundentestdata, kundentesthead);
+		kundenTable.setDragEnabled(false);
+		kundenTable.setAutoCreateRowSorter(true);
+		JScrollPane kundenScrollPane = new JScrollPane(kundenTable);
+		
+		JPanel kundenNavigationPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+		kundenNavigationPanel.setBorder(BorderFactory.createTitledBorder("Kundennavigation"));
+		
+		JButton kundenListeAktualisierenButton = new JButton("Kundenliste aktualisieren");
+		kundenListeAktualisierenButton.addActionListener(controller);
+		kundenListeAktualisierenButton.setActionCommand("aktualisiereKundenListe");
+		kundenListeAktualisierenButton.setPreferredSize(artikelNavigationDimension);
+		
+		kundenNavigationPanel.add(kundenListeAktualisierenButton);
+		
 		kundenFrame = new JInternalFrame();
 		kundenFrame.setLocation(100, 100);
 		kundenFrame.setTitle("Kundenübersicht");
-
-		// Fenster "LAGER":
-		lagerFrame = new JInternalFrame();
-		lagerFrame.setLocation(100, 100);
-		lagerFrame.setTitle("Lagerübersicht");
+		kundenFrame.add(kundenScrollPane);
+		kundenFrame.add(kundenNavigationPanel, BorderLayout.SOUTH);
 
 		this.add(beendenPanel, BorderLayout.SOUTH);
 		this.add(navigationsButtonPanel, BorderLayout.NORTH);
 		this.setTitle("WaWiBay");
 		this.setVisible(true);
-		this.setSize(800, 600);
+		this.setSize(1280, 720);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 

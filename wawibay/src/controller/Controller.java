@@ -36,18 +36,30 @@ public class Controller implements ActionListener {
 			hauptview.add(hauptview.getKundenFrame());
 			schliesseInternalFrames();
 			hauptview.getKundenFrame().setVisible(true);
+			
 			break;
-		
 		
 		case "neuerArtikel":
 			
 			artikelview.initialise(this);
+			
 			break;
 			
 		case "beenden":
 			hauptview.dispose();
 			anmeldeview.dispose();
 			artikelview.dispose();
+			
+			break;
+			
+		case "arikelFensterSchliessen":
+			artikelview.dispose();
+			
+			break;
+			
+		case "bearbeiteArtikel":
+			artikelview.initialise(this);
+			
 			break;
 
 		default:
