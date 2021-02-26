@@ -1,7 +1,5 @@
 package model.tables;
 
-import java.awt.Image;
-
 public class Artikel {
 
 	/*
@@ -38,14 +36,69 @@ public class Artikel {
 		this.groesse = groesse;
 		this.kategorie_ID = kategorie_ID;
 	}
+	
+	// Standard ohne ID
+		public Artikel(String bezeichnung, float stueckpreis, String artikelbeschreibung, String material,
+				String farbe, int steuersatz, String groesse, int kategorie_ID) {
+			this.bezeichnung = bezeichnung;
+			this.stueckpreis = stueckpreis;
+			this.artikelbeschreibung = artikelbeschreibung;
+			this.material = material;
+			this.farbe = farbe;
+			this.steuersatz = steuersatz;
+			this.groesse = groesse;
+			this.kategorie_ID = kategorie_ID;
+		}
+
+	// Konstruktor um einen Artikel aus einem passendem Objekt-Array zu erzeugen
+	public Artikel(Object[] objekte) {
+		this.artikel_ID = (int) objekte[0];
+		this.bezeichnung = (String) objekte[1];
+		this.stueckpreis = (float) objekte[2];
+		this.artikelbeschreibung = (String) objekte[3];
+		this.material = (String) objekte[4];
+		this.farbe = (String) objekte[5];
+		this.steuersatz = (int) objekte[6];
+		this.groesse = (String) objekte[7];
+		this.kategorie_ID = (int) objekte[8];
+	}
 
 	/*
 	 * Methoden
 	 */
 
+	// Umwandlung in Objekt-Array
+	public Object[] inArrayUmwandeln() {
+		Object[] objekte = { artikel_ID, bezeichnung, stueckpreis, artikelbeschreibung, material, farbe, steuersatz,
+				groesse, kategorie_ID };
+		return objekte;
+
+	}
+
 	// Alle Daten
 	public static String alles() {
 		return "Select * from artikel";
+	}
+
+	// Neuer Artikel
+//	public String neuerArtikel() {
+//		return "Insert into artikel values (" + artikel_ID + ", " + bezeichnung + ", " + stueckpreis + ", " + artikelbeschreibung
+//				+ ", " + material + ", " + farbe + ", " + steuersatz + ", " + groesse + ", " + kategorie_ID + ") ";
+//	}
+	public String neuerArtikel() {
+		return "Insert into artikel (" + struktur[1][0] + ", " + struktur[2][0] + ", " + struktur[3][0] + ", "
+				+ struktur[4][0] + ", " + struktur[5][0] + ", " + struktur[6][0] + ", " + struktur[7][0] + ", "
+				+ struktur[8][0] + ") values ('" + bezeichnung + "', " + stueckpreis + ", '" + artikelbeschreibung + "', '"
+				+ material + "', '" + farbe + "', " + steuersatz + ", '" + groesse + "', " + kategorie_ID + ") ";
+	}
+
+	// Ändern
+	public String aendereArtikel() {
+		return "update artikel set " + struktur[1][0] + " = '" + bezeichnung + "' " + struktur[2][0] + " = "
+				+ stueckpreis + " " + struktur[3][0] + " = '" + artikelbeschreibung + "' " + struktur[4][0] + " = '"
+				+ material + "' " + struktur[5][0] + " = '" + farbe + "' " + struktur[6][0] + " = " + steuersatz + " "
+				+ struktur[7][0] + " = '" + bezeichnung + "' " + struktur[8][0] + " = " + kategorie_ID + " where "
+				+ struktur[0][0] + " = " + artikel_ID;
 	}
 
 	/*
@@ -133,8 +186,8 @@ public class Artikel {
 
 	@Override
 	public String toString() {
-		return artikel_ID + "," + bezeichnung + "," + stueckpreis + "," + artikelbeschreibung + "," + material + "," + farbe
-				+ "," + steuersatz + "," + groesse+ "," + kategorie_ID;
+		return artikel_ID + "," + bezeichnung + "," + stueckpreis + "," + artikelbeschreibung + "," + material + ","
+				+ farbe + "," + steuersatz + "," + groesse + "," + kategorie_ID;
 	}
 
 }
