@@ -59,18 +59,21 @@ public void initialise(Controller controller) {
 	JButton abbrechenButton = new JButton("Abbrechen");
 	abbrechenButton.addActionListener(controller);
 	abbrechenButton.setActionCommand("beenden");
+	anmeldeButton.addActionListener(controller);
+	anmeldeButton.setActionCommand("anmelden");
 	
 	//Erstellung des Buttonpanels (Layoutgründe...)
 	JPanel buttonPanel = new JPanel(new BorderLayout());
 	buttonPanel.add(anmeldeButton, BorderLayout.WEST);
 	buttonPanel.add(abbrechenButton, BorderLayout.EAST);
 	
+	this.setResizable(false);
 	this.add(anmeldePanel);
 	this.add(buttonPanel, BorderLayout.SOUTH);
 	this.setSize(350, 350);
 	this.setTitle("Anmelden bei WaWiBay");
 	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	this.setLocationRelativeTo(null);				//Zentrierung des Anmeldefensters, auch bei mehreren Monitoren (Primärer Monitor)
+	this.setLocationRelativeTo(null);
 	this.setVisible(true);
 	
 

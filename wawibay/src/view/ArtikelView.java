@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -11,7 +13,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
@@ -23,6 +24,8 @@ import controller.Controller;
 public class ArtikelView extends JFrame {
 
 	Controller controller;
+	HauptView hauptview;
+	ArtikelView artikelview;
 
 	public void initialise(Controller controller) {
 
@@ -40,7 +43,6 @@ public class ArtikelView extends JFrame {
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-
 		
 		// Hier sind die Reiter inkl. Panels
 		JTabbedPane artikelTabbedPane = new JTabbedPane();
@@ -77,12 +79,17 @@ public class ArtikelView extends JFrame {
 		beschreibungTextfield.setMaximumSize(beschreibungTextfield.getPreferredSize());
 		beschreibungPanel.add(beschreibungTextfield);
 		
+		String waehrungsListe[] = {"€", "$", "£"};
+		JComboBox <String> waehrungsCombobox = new JComboBox<String>(waehrungsListe);
+		waehrungsCombobox.setPreferredSize(new Dimension(80, 20));
+		
 		JPanel bruttopreisPanel = new JPanel();
-		bruttopreisPanel.setLayout(new BorderLayout());
+		bruttopreisPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		bruttopreisPanel.setBorder(BorderFactory.createTitledBorder("Bruttopreis"));
 		JTextField bruttoPreisTextfield = new JTextField(50);
 		bruttoPreisTextfield.setMaximumSize(bruttoPreisTextfield.getPreferredSize());
 		bruttopreisPanel.add(bruttoPreisTextfield);
+		bruttopreisPanel.add(waehrungsCombobox);
 		
 		JPanel steuersatzPanel = new JPanel();
 		steuersatzPanel.setLayout(new BorderLayout());
@@ -226,9 +233,7 @@ public class ArtikelView extends JFrame {
 		
 		variationReiterPanel.add(variationenEintragenPanel);
 		variationReiterPanel.add(variationenButtonPanel);
-	
-		//TODO: Fenster nicht beweglich und nicht minimierbar machen
-		
+
 		this.add(artikelTabbedPane);
 		this.setResizable(false);
 		this.pack();

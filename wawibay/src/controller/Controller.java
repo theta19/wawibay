@@ -25,7 +25,15 @@ public class Controller implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		switch (e.getActionCommand()) {
+		
+		//Derzeit zu Testzwecken (Stand 27.02.) einfach per Klick auf "Anmelden" startbar. Später Abfrage der Zugangsdaten nötig
+		case "anmelden":
+			
+			anmeldeview.dispose();
+			hauptview.setEnabled(true);
+		
 		case "artikel":
+			
 			hauptview.add(hauptview.getArtikelFrame());
 			schliesseInternalFrames();
 			hauptview.getArtikelFrame().setVisible(true);
@@ -33,6 +41,7 @@ public class Controller implements ActionListener {
 			break;
 
 		case "kunden":
+			
 			hauptview.add(hauptview.getKundenFrame());
 			schliesseInternalFrames();
 			hauptview.getKundenFrame().setVisible(true);
@@ -42,10 +51,13 @@ public class Controller implements ActionListener {
 		case "neuerArtikel":
 			
 			artikelview.initialise(this);
+			artikelview.setAlwaysOnTop(true);
+			hauptview.setEnabled(false);
 			
 			break;
 			
 		case "beenden":
+			
 			hauptview.dispose();
 			anmeldeview.dispose();
 			artikelview.dispose();
@@ -53,7 +65,13 @@ public class Controller implements ActionListener {
 			break;
 			
 		case "arikelFensterSchliessen":
+			
+			//hierzu siehe Nachricht im Launcher. Nur über "Beenden" Button das Fenster schließen.
+			
+			hauptview.setEnabled(true);
+			artikelview.setAlwaysOnTop(false);
 			artikelview.dispose();
+			
 			
 			break;
 			

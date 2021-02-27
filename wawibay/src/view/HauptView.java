@@ -158,14 +158,13 @@ public class HauptView extends JFrame {
 		// Befüllen des Fensters "ARTIKEL" mit Buttons usw.
 		Dimension artikelNavigationDimension = new Dimension(200, 50);
 		JButton artikelNeuButton = new JButton("Neuer Artikel...");
-		JButton kategorieNeuButton = new JButton("Neue Kategorie...");
+//		JButton kategorieNeuButton = new JButton("Neue Kategorie...");
 		JButton bearbeitenButton = new JButton("Artikel bearbeiten...");
 		JButton loeschenButton = new JButton("Artikel löschen");
 		JButton artikelListeAktualisierenButton = new JButton("Liste aktualisieren");
 
 		// Größen der Buttons festlegen
 		artikelNeuButton.setPreferredSize(artikelNavigationDimension);
-		kategorieNeuButton.setPreferredSize(artikelNavigationDimension);
 		bearbeitenButton.setPreferredSize(artikelNavigationDimension);
 		loeschenButton.setPreferredSize(artikelNavigationDimension);
 		artikelListeAktualisierenButton.setPreferredSize(artikelNavigationDimension);
@@ -176,15 +175,15 @@ public class HauptView extends JFrame {
 		artikelNavigationPanel.add(artikelNeuButton);
 		artikelNavigationPanel.add(bearbeitenButton);
 		artikelNavigationPanel.add(loeschenButton);
-		artikelNavigationPanel.add(kategorieNeuButton);
+//		artikelNavigationPanel.add(kategorieNeuButton);
 		artikelNavigationPanel.add(artikelListeAktualisierenButton);
 
 		// Actionlisteners und ActionCommands für alle Buttons
 		artikelNeuButton.addActionListener(controller);
 		artikelNeuButton.setActionCommand("neuerArtikel");
 
-		kategorieNeuButton.addActionListener(controller);
-		kategorieNeuButton.setActionCommand("neueKategorie");
+//		kategorieNeuButton.addActionListener(controller);
+//		kategorieNeuButton.setActionCommand("neueKategorie");
 
 		bearbeitenButton.addActionListener(controller);
 		bearbeitenButton.setActionCommand("bearbeiteArtikel");
