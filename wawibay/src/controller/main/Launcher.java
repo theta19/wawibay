@@ -22,12 +22,16 @@ public class Launcher {
 		ArtikelView artikelView = new ArtikelView();
 		Controller controller = new Controller(hauptView, anmeldeView, artikelView);
 
-		// Hauptfenster
-		hauptView.initialise(controller);
+		
 
 		//Anmeldefenster - kommt nach Hauptfenster, damit es darüber liegt
 		anmeldeView.initialise(controller);
+		
+		// Hauptfenster
+		hauptView.initialise(controller);
 		hauptView.setEnabled(false);
+		
+		anmeldeView.toFront();
 
 	}
 

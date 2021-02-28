@@ -195,7 +195,7 @@ public class HauptView extends JFrame {
 		artikelListeAktualisierenButton.setActionCommand("aktualisiereArtikelListe");
 
 		// Tabelle für die Artikel inkl. Sortierer und Scrollpane
-		JTable artikelTable = new JTable(artikeltestdata, artikeltesthead);
+		JTable artikelTable = new JTable(controller.holeArtikelDaten(), controller.holeArtikelKoepfe());
 		artikelTable.setDragEnabled(false);
 		artikelTable.setAutoCreateRowSorter(true);
 		JScrollPane artikelScrollPane = new JScrollPane(artikelTable);
@@ -207,7 +207,7 @@ public class HauptView extends JFrame {
 		/* Fenster Kunden */
 		
 		// Tabelle für die Kunden inkl. Sortierer und Scrollpane
-		JTable kundenTable = new JTable(kundentestdata, kundentesthead);
+		JTable kundenTable = new JTable(controller.holeKundenDaten(), controller.holeKundenKoepfe());
 		kundenTable.setDragEnabled(false);
 		kundenTable.setAutoCreateRowSorter(true);
 		JScrollPane kundenScrollPane = new JScrollPane(kundenTable);

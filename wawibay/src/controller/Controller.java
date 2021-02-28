@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import javax.swing.JFrame;
 
 import model.database.DatenbankVerbindung;
 import model.tables.Artikel;
@@ -28,6 +27,9 @@ public class Controller implements ActionListener,WindowListener {
 		this.hauptview = hauptview;
 		this.anmeldeview = anmeldeview;
 		this.artikelview = artikelview;
+
+		//Eigentlich unten im anmelden...geht aber gearde nicht anders
+		verbindung.verbindeZurDatenbank("127.0.0.1:3306", "wawibay", "wawibay", "wawibay");
 	}
 
 	@Override
@@ -39,7 +41,6 @@ public class Controller implements ActionListener,WindowListener {
 		case "anmelden":
 			
 			anmeldeview.dispose();
-			verbindung.verbindeZurDatenbank("127.0.0.1:3306", "wawibay", "wawibay", "wawibay");
 //			for (Kunden kunde : verbindung.alleKunden()) {
 //				System.out.println(kunde.toString());
 //			}
@@ -117,6 +118,53 @@ public class Controller implements ActionListener,WindowListener {
 
 	}
 	
+	public String[] alleKategorienNurNamenAlsStringArray() {
+		Kategorie[] alleKategorien= verbindung.alleKategorie();
+		String[] kategorieNamen = new String[alleKategorien.length];
+		for (int i = 0; i < alleKategorien.length; i++) {
+			kategorieNamen[i]=alleKategorien[i].getName();
+		}
+		return kategorieNamen;
+	}
+	
+	public Object[] holeArtikelKoepfe() {
+		String[][] artikelStruktur = Artikel.getStruktur();
+		Object[] artikelKopf = new Object[artikelStruktur.length];
+		for (int i = 0; i < artikelStruktur.length; i++) {
+			artikelKopf[i]=artikelStruktur[i][2];
+		}
+		return artikelKopf;
+	}
+	
+	public Object[] holeKundenKoepfe() {
+		String[][] kundenStruktur = Kunden.getStruktur();
+		Object[] kundenKopf = new Object[kundenStruktur.length];
+		for (int i = 0; i < kundenStruktur.length; i++) {
+			kundenKopf[i]=kundenStruktur[i][2];
+		}
+		return kundenKopf;
+	}
+	
+	public Object[][] holeArtikelDaten(){
+		Artikel[] alleArtikel = verbindung.alleArtikel();
+		Object[][] alleObjekte = new Object[alleArtikel.length][];
+		for (int i = 0; i < alleArtikel.length; i++) {
+			alleObjekte[i]=alleArtikel[i].inArrayUmwandeln();
+		}
+		return alleObjekte;
+	}
+	
+	public Object[][] holeKundenDaten(){
+		Kunden[] alleKunden = verbindung.alleKunden();
+		Object[][] alleObjekte = new Object[alleKunden.length][];
+		for (int i = 0; i < alleKunden.length; i++) {
+			alleObjekte[i]=alleKunden[i].inArrayUmwandeln();
+		}
+		return alleObjekte;
+	}
+	
+	
+	//WindowListener Overrides
 	@Override
 	public void windowClosing(WindowEvent e) {
 		hauptview.setEnabled(true);

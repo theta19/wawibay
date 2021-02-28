@@ -4,8 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -108,10 +106,12 @@ public class ArtikelView extends JFrame {
 		bestandPanel.add(bestandTextfield);
 		
 		// @Basti: Kategorien müssen später per Stream o.ä. gezogen werden - hier zur Demo paar Beispiele
+		// Done
 		JPanel kategoriePanel = new JPanel();
 		kategoriePanel.setLayout(new BorderLayout());
 		kategoriePanel.setBorder(BorderFactory.createTitledBorder("Kategorie"));
-		String kategorieListe[] = {"Kategorie1", "Kategorie2", "Kategorie3", "Kategorie4"};
+//		String kategorieListe[] = {"Kategorie1", "Kategorie2", "Kategorie3", "Kategorie4"};
+		String kategorieListe[] = controller.alleKategorienNurNamenAlsStringArray();
 		JComboBox <String> kategorieCombobox = new JComboBox<String>(kategorieListe);
 		kategoriePanel.add(kategorieCombobox);
 		
