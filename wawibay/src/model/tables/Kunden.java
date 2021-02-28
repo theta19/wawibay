@@ -31,7 +31,7 @@ public class Kunden {
 
 	// Standard
 	public Kunden(int kunden_ID, String ebay_nutzername, String anrede, String vorname, String nachname,
-			String strasse_nr, String plz, String ort, String land, String adresszusatz, String email,
+			String strasse_nr, String plz, String ort, String adresszusatz, String land, String email,
 			String telefonnummer) {
 		this.kunden_ID = kunden_ID;
 		this.anrede = anrede;
@@ -49,7 +49,7 @@ public class Kunden {
 
 	// Standard ohne ID
 	public Kunden(String ebay_nutzername, String anrede, String vorname, String nachname, String strasse_nr, String plz,
-			String ort, String land, String adresszusatz, String email, String telefonnummer) {
+			String ort, String adresszusatz, String land, String email, String telefonnummer) {
 		this.anrede = anrede;
 		this.nachname = nachname;
 		this.vorname = vorname;
@@ -73,10 +73,10 @@ public class Kunden {
 		this.strasse_nr = (String) objekte[5];
 		this.plz = (String) objekte[6];
 		this.ort = (String) objekte[7];
-		this.land = (String) objekte[8];
-		this.telefonnummer = (String) objekte[9];
-		this.adresszusatz = (String) objekte[10];
-		this.email = (String) objekte[11];
+		this.adresszusatz = (String) objekte[8];
+		this.land = (String) objekte[9];
+		this.email = (String) objekte[10];
+		this.telefonnummer = (String) objekte[11];
 	}
 
 	/*
@@ -88,7 +88,6 @@ public class Kunden {
 		Object[] objekte = { kunden_ID, ebay_nutzername, anrede, vorname, nachname, strasse_nr, plz, ort, adresszusatz,
 				land, email, telefonnummer };
 		return objekte;
-
 	}
 
 	// Einfügen
@@ -97,8 +96,8 @@ public class Kunden {
 				+ struktur[4][0] + ", " + struktur[5][0] + ", " + struktur[6][0] + ", " + struktur[7][0] + ", "
 				+ struktur[8][0] + ", " + struktur[9][0] + ", " + struktur[10][0] + ", " + struktur[11][0]
 				+ ")values ('" + anrede + "', '" + nachname + "', '" + vorname + "', '" + ebay_nutzername + "', '"
-				+ strasse_nr + "', '" + plz + "', '" + ort + "', '" + land + "', '" + telefonnummer + "', '" + adresszusatz
-				+ "', '" + email + "') ";
+				+ strasse_nr + "', '" + plz + "', '" + ort + "', '" + adresszusatz + "', '" + land + "', '" + email
+				+ "', '" + telefonnummer + "') ";
 	}
 
 	// Ändern
@@ -106,9 +105,9 @@ public class Kunden {
 		return "update kunden set " + struktur[1][0] + " = '" + anrede + "', " + struktur[2][0] + " = '" + nachname
 				+ "', " + struktur[3][0] + " = '" + vorname + "', " + struktur[4][0] + " = '" + ebay_nutzername + "', "
 				+ struktur[5][0] + " = '" + strasse_nr + "', " + struktur[6][0] + " = '" + plz + "', " + struktur[7][0]
-				+ " = '" + ort + "', " + struktur[8][0] + " = '" + land + "', " + struktur[9][0] + " = '"
-				+ telefonnummer + "', " + struktur[10][0] + " = '" + adresszusatz + "', " + struktur[11][0] + " = '"
-				+ email + "' where " + struktur[0][0] + " = " + kunden_ID;
+				+ " = '" + ort + "', " + struktur[8][0] + " = '" + adresszusatz + "', " + struktur[9][0] + " = '"
+				+ land + "', " + struktur[10][0] + " = '" + email + "', " + struktur[11][0] + " = '"
+				+ telefonnummer + "' where " + struktur[0][0] + " = " + kunden_ID;
 	}
 
 	// Alle Daten

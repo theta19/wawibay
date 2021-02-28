@@ -25,81 +25,15 @@ import controller.Controller;
 public class HauptView extends JFrame {
 
 	JInternalFrame artikelFrame, kundenFrame, lagerFrame;
-
-	//Testdaten
-	Object[][] artikeltestdata = 
-		{	{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" },
-			{ "12345", "Testartikel" }, { "12345", "Testartikel" }};
-	
-	Object[] artikeltesthead = {"Artikelnummer","Bezeichnung"}; 
-	
-	Object[][] kundentestdata = 
-			{ { "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" },
-			{ "67890", "Testkunde" }, { "67890", "Testkunde" }};
-	
-	Object[] kundentesthead = {"Kundennummer","Name"}; 
+	JTable artikelTable;
 
 	Controller controller;
+	Object [][] tabellendaten;
 
 	public void initialise(Controller controller) {
 
 		this.controller = controller;
+//		this.addWindowListener(controller);
 
 		// Designeinstellung nach "Systemstandard"
 		try {
@@ -190,12 +124,14 @@ public class HauptView extends JFrame {
 
 		loeschenButton.addActionListener(controller);
 		loeschenButton.setActionCommand("loescheArtikel");
-		
+
 		artikelListeAktualisierenButton.addActionListener(controller);
 		artikelListeAktualisierenButton.setActionCommand("aktualisiereArtikelListe");
 
 		// Tabelle für die Artikel inkl. Sortierer und Scrollpane
-		JTable artikelTable = new JTable(controller.holeArtikelDaten(), controller.holeArtikelKoepfe());
+		tabellendaten = controller.holeArtikelDaten();
+		artikelTable = new JTable(tabellendaten, controller.holeArtikelKoepfe());
+//		artikelTable.setmodel
 		artikelTable.setDragEnabled(false);
 		artikelTable.setAutoCreateRowSorter(true);
 		JScrollPane artikelScrollPane = new JScrollPane(artikelTable);
@@ -203,25 +139,25 @@ public class HauptView extends JFrame {
 		// Hinzufügen zum großen Artikelframe
 		artikelFrame.add(artikelNavigationPanel, BorderLayout.SOUTH);
 		artikelFrame.add(artikelScrollPane);
-		
+
 		/* Fenster Kunden */
-		
+
 		// Tabelle für die Kunden inkl. Sortierer und Scrollpane
 		JTable kundenTable = new JTable(controller.holeKundenDaten(), controller.holeKundenKoepfe());
 		kundenTable.setDragEnabled(false);
 		kundenTable.setAutoCreateRowSorter(true);
 		JScrollPane kundenScrollPane = new JScrollPane(kundenTable);
-		
+
 		JPanel kundenNavigationPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		kundenNavigationPanel.setBorder(BorderFactory.createTitledBorder("Kundennavigation"));
-		
+
 		JButton kundenListeAktualisierenButton = new JButton("Kundenliste aktualisieren");
 		kundenListeAktualisierenButton.addActionListener(controller);
 		kundenListeAktualisierenButton.setActionCommand("aktualisiereKundenListe");
 		kundenListeAktualisierenButton.setPreferredSize(artikelNavigationDimension);
-		
+
 		kundenNavigationPanel.add(kundenListeAktualisierenButton);
-		
+
 		kundenFrame = new JInternalFrame();
 		kundenFrame.setLocation(100, 100);
 		kundenFrame.setTitle("Kundenübersicht");
@@ -261,5 +197,24 @@ public class HauptView extends JFrame {
 	public void setLagerFrame(JInternalFrame lagerFrame) {
 		this.lagerFrame = lagerFrame;
 	}
+
+	public JTable getArtikelTable() {
+		return artikelTable;
+	}
+
+	public void setArtikelTable(JTable artikelTable) {
+		this.artikelTable = artikelTable;
+	}
+
+	public Object[][] getTabellendaten() {
+		return tabellendaten;
+	}
+
+	public void setTabellendaten(Object[][] tabellendaten) {
+		this.tabellendaten = tabellendaten;
+	}
+	
+	
+	
 
 }

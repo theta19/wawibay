@@ -55,6 +55,11 @@ public class Kategorie {
 	public static String alles() {
 		return "Select * from kategorie";
 	}
+	
+	//Abfrage der ID anhand des Namens
+	public static String holeIDdurchName(String name) {
+		return "Select "+struktur[0][0]+" from kategorie where "+struktur[1][0]+" = '"+name+"'";
+	}
 
 	/*
 	 * Getter und Setter

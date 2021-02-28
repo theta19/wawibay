@@ -15,16 +15,18 @@ public class Artikel {
 	private String groesse;
 	private int kategorie_ID;
 
-	private static String[][] struktur = { { "Artikel_ID", "Integer","Artikelnummer" }, { "Bezeichnung", "String","Bezeichnung" },
-			{ "Stueckpreis", "Float","Stückpreis" }, { "Artikelbeschreibung", "String","Artikelbeschreibung" }, { "Material", "String","Material" },
-			{ "Farbe", "String","Farbe" }, { "Steuersatz", "Integer","Steuersatz" }, { "Groesse", "String", "Größe" } };
+	private static String[][] struktur = { { "Artikel_ID", "Integer", "Artikelnummer" },
+			{ "Bezeichnung", "String", "Bezeichnung" }, { "Stueckpreis", "Float", "Stückpreis" },
+			{ "Artikelbeschreibung", "String", "Artikelbeschreibung" }, { "Material", "String", "Material" },
+			{ "Farbe", "String", "Farbe" }, { "Steuersatz", "Integer", "Steuersatz" },
+			{ "Groesse", "String", "Größe" },{"Kategorie_ID_Fremd", "Integer","Kategorienummer"} };
 
 	/*
 	 * Konstruktoren
 	 */
 
 	// Standard
-	public Artikel(int artikel_ID, String bezeichnung, float stueckpreis, String artikelbeschreibung, String material,
+	public Artikel(int artikel_ID, String bezeichnung, int stueckpreis, String artikelbeschreibung, String material,
 			String farbe, int steuersatz, String groesse, int kategorie_ID) {
 		this.artikel_ID = artikel_ID;
 		this.bezeichnung = bezeichnung;
@@ -36,19 +38,19 @@ public class Artikel {
 		this.groesse = groesse;
 		this.kategorie_ID = kategorie_ID;
 	}
-	
+
 	// Standard ohne ID
-		public Artikel(String bezeichnung, float stueckpreis, String artikelbeschreibung, String material,
-				String farbe, int steuersatz, String groesse, int kategorie_ID) {
-			this.bezeichnung = bezeichnung;
-			this.stueckpreis = stueckpreis;
-			this.artikelbeschreibung = artikelbeschreibung;
-			this.material = material;
-			this.farbe = farbe;
-			this.steuersatz = steuersatz;
-			this.groesse = groesse;
-			this.kategorie_ID = kategorie_ID;
-		}
+	public Artikel(String bezeichnung, int stueckpreis, String artikelbeschreibung, String material, String farbe,
+			int steuersatz, String groesse, int kategorie_ID) {
+		this.bezeichnung = bezeichnung;
+		this.stueckpreis = stueckpreis;
+		this.artikelbeschreibung = artikelbeschreibung;
+		this.material = material;
+		this.farbe = farbe;
+		this.steuersatz = steuersatz;
+		this.groesse = groesse;
+		this.kategorie_ID = kategorie_ID;
+	}
 
 	// Konstruktor um einen Artikel aus einem passendem Objekt-Array zu erzeugen
 	public Artikel(Object[] objekte) {
@@ -88,8 +90,9 @@ public class Artikel {
 	public String neuerArtikel() {
 		return "Insert into artikel (" + struktur[1][0] + ", " + struktur[2][0] + ", " + struktur[3][0] + ", "
 				+ struktur[4][0] + ", " + struktur[5][0] + ", " + struktur[6][0] + ", " + struktur[7][0] + ", "
-				+ struktur[8][0] + ") values ('" + bezeichnung + "', " + stueckpreis + ", '" + artikelbeschreibung + "', '"
-				+ material + "', '" + farbe + "', " + steuersatz + ", '" + groesse + "', " + kategorie_ID + ") ";
+				+ struktur[8][0] + ") values ('" + bezeichnung + "', " + stueckpreis + ", '" + artikelbeschreibung
+				+ "', '" + material + "', '" + farbe + "', " + steuersatz + ", '" + groesse + "', " + kategorie_ID
+				+ ") ";
 	}
 
 	// Ändern

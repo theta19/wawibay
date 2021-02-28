@@ -75,6 +75,7 @@ public void initialise(Controller controller) {
 	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	this.setLocationRelativeTo(null);
 	this.setVisible(true);
+	this.setAlwaysOnTop(true);
 	
 
 	

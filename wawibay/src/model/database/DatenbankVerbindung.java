@@ -24,7 +24,7 @@ public class DatenbankVerbindung {
 	public boolean verbindeZurDatenbank(String host, String datenbank, String benutzer, String passwort) {
 		try {
 			verbindung = DriverManager.getConnection("jdbc:mysql://" + host + "/" + datenbank, benutzer, passwort);
-			System.out.println("Verbindung zur DB erfolgreich herrgestellt.");
+			System.out.println("Verbindung zur DB erfolgreich hergestellt.");
 			return true;
 
 		} catch (Exception e) {
@@ -127,7 +127,7 @@ public class DatenbankVerbindung {
 				ResultSet ergebnis = statement.executeQuery(Artikel.alles())) {
 			ArrayList<Artikel> artikels = new ArrayList<>();
 			while (ergebnis.next()) {
-				Artikel artikel = new Artikel(ergebnis.getInt(1), ergebnis.getString(2), ergebnis.getFloat(3),
+				Artikel artikel = new Artikel(ergebnis.getInt(1), ergebnis.getString(2), ergebnis.getInt(3),
 						ergebnis.getString(4), ergebnis.getString(5), ergebnis.getString(6), ergebnis.getInt(7),
 						ergebnis.getString(8), ergebnis.getInt(9));
 				artikels.add(artikel);
@@ -171,6 +171,17 @@ public class DatenbankVerbindung {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public int holeKategorieIDanhandName(String name) {
+		try(Statement statement = verbindung.createStatement();
+				ResultSet ergebnis = statement.executeQuery(Kategorie.holeIDdurchName(name))) {
+			ergebnis.next();
+			return ergebnis.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
 		}
 	}
 
