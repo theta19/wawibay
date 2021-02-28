@@ -8,7 +8,7 @@ public class Kategorie {
 	private int kategorie_ID;
 	private String name;
 
-	private static String[][] struktur = { { "Kategorie_ID", "Integer" }, { "Kategoriename", "String" } };
+	private static String[][] struktur = { { "Kategorie_ID", "Integer","Kategorienummer" }, { "Kategoriename", "String","Bezeichnung" } };
 
 	/*
 	 * Konstruktoren

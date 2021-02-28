@@ -88,7 +88,7 @@ public class DatenbankVerbindung {
 	// Neues im Lager
 	public boolean neuesAufLager(Lager lager) {
 		try (Statement statement = verbindung.createStatement();) {
-//			statement.execute(lager.neuesImLager());
+			statement.execute(lager.neuesImLager());
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -173,11 +173,11 @@ public class DatenbankVerbindung {
 			return null;
 		}
 	}
-	
+
 	/*
 	 * Änderungsmethoden
 	 */
-	
+
 	public boolean aendereKunde(Kunden kunde) {
 		try (Statement statement = verbindung.createStatement();) {
 			statement.execute(kunde.aendereKunde());
@@ -187,7 +187,7 @@ public class DatenbankVerbindung {
 			return false;
 		}
 	}
-	
+
 	public boolean aendereArtikel(Artikel artikel) {
 		try (Statement statement = verbindung.createStatement();) {
 			statement.execute(artikel.aendereArtikel());
@@ -197,7 +197,7 @@ public class DatenbankVerbindung {
 			return false;
 		}
 	}
-	
+
 	public boolean aendereKategorie(Kategorie kategorie) {
 		try (Statement statement = verbindung.createStatement();) {
 			statement.execute(kategorie.aendereKategorie());
@@ -207,10 +207,10 @@ public class DatenbankVerbindung {
 			return false;
 		}
 	}
-	
+
 	public boolean aendereImLager(Lager lager) {
 		try (Statement statement = verbindung.createStatement();) {
-//			statement.execute(lager.aendereImLager());
+			statement.execute(lager.aendereImLager());
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

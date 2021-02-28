@@ -15,9 +15,9 @@ public class Artikel {
 	private String groesse;
 	private int kategorie_ID;
 
-	private static String[][] struktur = { { "Artikel_ID", "Integer" }, { "Bezeichnung", "String" },
-			{ "Stueckpreis", "Float" }, { "Artikelbeschreibung", "String" }, { "Material", "String" },
-			{ "Farbe", "String" }, { "Steuersatz", "Integer" }, { "Groesse", "String" } };
+	private static String[][] struktur = { { "Artikel_ID", "Integer","Artikelnummer" }, { "Bezeichnung", "String","Bezeichnung" },
+			{ "Stueckpreis", "Float","Stückpreis" }, { "Artikelbeschreibung", "String","Artikelbeschreibung" }, { "Material", "String","Material" },
+			{ "Farbe", "String","Farbe" }, { "Steuersatz", "Integer","Steuersatz" }, { "Groesse", "String", "Größe" } };
 
 	/*
 	 * Konstruktoren

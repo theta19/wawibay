@@ -19,11 +19,11 @@ public class Kunden {
 	private String email;
 	private String telefonnummer;
 
-	private static String[][] struktur = { { "Kunden_ID", "Integer" }, { "EBay_Benutzername", "String" },
-			{ "Anrede", "String" }, { "Vorname", "String" }, { "Nachname", "String" },
-			{ "Strasse_Hausnummer", "String" }, { "Postleitzahl", "String" }, { "Wohnort", "String" },
-			{ "Adresszusatz", "String" }, { "Land", "String" }, { "Email_Adresse", "String" },
-			{ "Telefonnummer", "String" } };
+	private static String[][] struktur = { { "Kunden_ID", "Integer", "Kundennummer" }, { "EBay_Benutzername", "String","Ebay Benutzername" },
+			{ "Anrede", "String","Anrede" }, { "Vorname", "String", "Vorname" }, { "Nachname", "String","Nachname" },
+			{ "Strasse_Hausnummer", "String", "Straﬂe+Nr" }, { "Postleitzahl", "String","Postleitzahl" }, { "Wohnort", "String","Wohnort" },
+			{ "Adresszusatz", "String", "Adresszusatz" }, { "Land", "String","Land" }, { "Email_Adresse", "String","Emailadresse" },
+			{ "Telefonnummer", "String","Telefonnummer" } };
 
 	/*
 	 * Konstruktoren
