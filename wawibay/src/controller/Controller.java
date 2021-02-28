@@ -7,6 +7,11 @@ import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 
+import model.database.DatenbankVerbindung;
+import model.tables.Artikel;
+import model.tables.Kategorie;
+import model.tables.Kunden;
+import model.tables.Lager;
 import view.AnmeldeView;
 import view.ArtikelView;
 import view.HauptView;
@@ -16,6 +21,8 @@ public class Controller implements ActionListener,WindowListener {
 	HauptView hauptview;
 	AnmeldeView anmeldeview;
 	ArtikelView artikelview;
+	
+	DatenbankVerbindung verbindung = new DatenbankVerbindung();
 
 	public Controller(HauptView hauptview, AnmeldeView anmeldeview, ArtikelView artikelview) {
 		this.hauptview = hauptview;
@@ -32,6 +39,22 @@ public class Controller implements ActionListener,WindowListener {
 		case "anmelden":
 			
 			anmeldeview.dispose();
+			verbindung.verbindeZurDatenbank("127.0.0.1:3306", "wawibay", "wawibay", "wawibay");
+//			for (Kunden kunde : verbindung.alleKunden()) {
+//				System.out.println(kunde.toString());
+//			}
+//			System.out.println("");
+//			for (Artikel artikel : verbindung.alleArtikel()) {
+//				System.out.println(artikel.toString());
+//			}
+//			System.out.println("");
+//			for (Kategorie kategorie : verbindung.alleKategorie()) {
+//				System.out.println(kategorie.toString());
+//			}
+//			System.out.println("");
+//			for (Lager lager : verbindung.alleLager()) {
+//				System.out.println(lager.toString());
+//			}
 			hauptview.setEnabled(true);
 		
 		case "artikel":
