@@ -19,11 +19,11 @@ public class Kunden {
 	private String email;
 	private String telefonnummer;
 
-	private static String[][] struktur = { { "Kunden_ID", "Integer" }, { "EBay_Benutzername", "String" },
-			{ "Anrede", "String" }, { "Vorname", "String" }, { "Nachname", "String" },
-			{ "Strasse_Hausnummer", "String" }, { "Postleitzahl", "String" }, { "Wohnort", "String" },
-			{ "Adresszusatz", "String" }, { "Land", "String" }, { "Email_Adresse", "String" },
-			{ "Telefonnummer", "String" } };
+	private static String[][] struktur = { { "Kunden_ID", "Integer", "Kundennummer" }, { "EBay_Benutzername", "String","Ebay Benutzername" },
+			{ "Anrede", "String","Anrede" }, { "Vorname", "String", "Vorname" }, { "Nachname", "String","Nachname" },
+			{ "Strasse_Hausnummer", "String", "Straße+Nr" }, { "Postleitzahl", "String","Postleitzahl" }, { "Wohnort", "String","Wohnort" },
+			{ "Adresszusatz", "String", "Adresszusatz" }, { "Land", "String","Land" }, { "Email_Adresse", "String","Emailadresse" },
+			{ "Telefonnummer", "String","Telefonnummer" } };
 
 	/*
 	 * Konstruktoren
@@ -47,9 +47,69 @@ public class Kunden {
 		this.email = email;
 	}
 
+	// Standard ohne ID
+	public Kunden(String ebay_nutzername, String anrede, String vorname, String nachname, String strasse_nr, String plz,
+			String ort, String land, String adresszusatz, String email, String telefonnummer) {
+		this.anrede = anrede;
+		this.nachname = nachname;
+		this.vorname = vorname;
+		this.ebay_nutzername = ebay_nutzername;
+		this.strasse_nr = strasse_nr;
+		this.plz = plz;
+		this.ort = ort;
+		this.land = land;
+		this.telefonnummer = telefonnummer;
+		this.adresszusatz = adresszusatz;
+		this.email = email;
+	}
+
+	// Konstruktor um einen Kunden aus einem passendem Objekt-Array zu erzeugen
+	public Kunden(Object[] objekte) {
+		this.kunden_ID = (int) objekte[0];
+		this.anrede = (String) objekte[1];
+		this.nachname = (String) objekte[2];
+		this.vorname = (String) objekte[3];
+		this.ebay_nutzername = (String) objekte[4];
+		this.strasse_nr = (String) objekte[5];
+		this.plz = (String) objekte[6];
+		this.ort = (String) objekte[7];
+		this.land = (String) objekte[8];
+		this.telefonnummer = (String) objekte[9];
+		this.adresszusatz = (String) objekte[10];
+		this.email = (String) objekte[11];
+	}
+
 	/*
 	 * Methoden
 	 */
+
+	// Umwandlung in Objekt-Array
+	public Object[] inArrayUmwandeln() {
+		Object[] objekte = { kunden_ID, ebay_nutzername, anrede, vorname, nachname, strasse_nr, plz, ort, adresszusatz,
+				land, email, telefonnummer };
+		return objekte;
+
+	}
+
+	// Einfügen
+	public String neuerKunde() {
+		return "Insert into kunden (" + struktur[1][0] + ", " + struktur[2][0] + ", " + struktur[3][0] + ", "
+				+ struktur[4][0] + ", " + struktur[5][0] + ", " + struktur[6][0] + ", " + struktur[7][0] + ", "
+				+ struktur[8][0] + ", " + struktur[9][0] + ", " + struktur[10][0] + ", " + struktur[11][0]
+				+ ")values ('" + anrede + "', '" + nachname + "', '" + vorname + "', '" + ebay_nutzername + "', '"
+				+ strasse_nr + "', '" + plz + "', '" + ort + "', '" + land + "', '" + telefonnummer + "', '" + adresszusatz
+				+ "', '" + email + "') ";
+	}
+
+	// Ändern
+	public String aendereKunde() {
+		return "update kunden set " + struktur[1][0] + " = '" + anrede + "', " + struktur[2][0] + " = '" + nachname
+				+ "', " + struktur[3][0] + " = '" + vorname + "', " + struktur[4][0] + " = '" + ebay_nutzername + "', "
+				+ struktur[5][0] + " = '" + strasse_nr + "', " + struktur[6][0] + " = '" + plz + "', " + struktur[7][0]
+				+ " = '" + ort + "', " + struktur[8][0] + " = '" + land + "', " + struktur[9][0] + " = '"
+				+ telefonnummer + "', " + struktur[10][0] + " = '" + adresszusatz + "', " + struktur[11][0] + " = '"
+				+ email + "' where " + struktur[0][0] + " = " + kunden_ID;
+	}
 
 	// Alle Daten
 	public static String alles() {
