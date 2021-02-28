@@ -10,6 +10,10 @@ import view.HauptView;
 //			leider war das nicht so einfach wie gedacht, deshalb habe ich es wieder gelöscht... LG Chris
 //			Quelle: https://stackoverflow.com/questions/9093448/how-to-capture-a-jframes-close-button-click-event
 
+/*
+ * Sollte gefixt sein. Auswirkungen auf andere Fenster bisher nicht erforscht.
+ */
+
 public class Launcher {
 
 	public static void main(String[] args) {

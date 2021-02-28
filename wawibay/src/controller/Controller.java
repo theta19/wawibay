@@ -2,6 +2,8 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 
@@ -9,7 +11,7 @@ import view.AnmeldeView;
 import view.ArtikelView;
 import view.HauptView;
 
-public class Controller implements ActionListener {
+public class Controller implements ActionListener,WindowListener {
 
 	HauptView hauptview;
 	AnmeldeView anmeldeview;
@@ -90,6 +92,47 @@ public class Controller implements ActionListener {
 		hauptview.getArtikelFrame().dispose();
 		hauptview.getKundenFrame().dispose();
 
+	}
+	
+	@Override
+	public void windowClosing(WindowEvent e) {
+		hauptview.setEnabled(true);
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -28,6 +28,8 @@ public class ArtikelView extends JFrame {
 	ArtikelView artikelview;
 
 	public void initialise(Controller controller) {
+		
+		this.addWindowListener(controller);
 
 		this.controller = controller;
 
@@ -243,5 +245,7 @@ public class ArtikelView extends JFrame {
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
+	
+	
 
 }
