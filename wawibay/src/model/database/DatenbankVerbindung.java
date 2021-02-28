@@ -24,7 +24,7 @@ public class DatenbankVerbindung {
 	public boolean verbindeZurDatenbank(String host, String datenbank, String benutzer, String passwort) {
 		try {
 			verbindung = DriverManager.getConnection("jdbc:mysql://" + host + "/" + datenbank, benutzer, passwort);
-			System.out.println("success");
+			System.out.println("Verbindung zur DB erfolgreich herrgestellt.");
 			return true;
 
 		} catch (Exception e) {
