@@ -1,1 +1,2 @@
 https://github.com/siickstar/cgan
+https://github.com/JackTerok/CGAN
